@@ -1,0 +1,581 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedCare | Your Premium Health Partner</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* --- Global Styles & Variables --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+/* --- Variables & Reset --- */
+:root {
+  /* Modern Premium Palette */
+  --primary: #0d9488;
+  /* Modern Teal 600 */
+  --primary-light: #ccfbf1;
+  /* Teal 100 */
+  --primary-dark: #0f766e;
+  /* Teal 700 */
+
+  --secondary: #0f172a;
+  /* Slate 900 */
+  --secondary-light: #334155;
+  /* Slate 700 */
+
+  --accent: #f59e0b;
+  /* Amber 500 */
+  --accent-hover: #d97706;
+  /* Amber 600 */
+
+  --text-main: #1e293b;
+  /* Slate 800 */
+  --text-muted: #64748b;
+  /* Slate 500 */
+
+  --bg-color: #f8fafc;
+  /* Slate 50 */
+  --surface: #ffffff;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+
+  /* Modern Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 4px 20px rgba(13, 148, 136, 0.25);
+
+  /* Borders & Radius */
+  --border-color: #e2e8f0;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 9999px;
+
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo,
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  color: var(--secondary);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* --- Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --- Typography --- */
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--secondary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto 4rem auto;
+  line-height: 1.8;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
+  background: linear-gradient(135deg, var(--primary-dark), #0b5e57);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--secondary);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-accent:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+  color: #fff;
+}
+/* --- Navbar (Glassmorphism) --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: var(--transition);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a:not(.btn) {
+  font-weight: 500;
+  color: var(--secondary-light);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:not(.btn):hover {
+  color: var(--primary);
+}
+
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--secondary);
+}
+/*---basic completed----*/
+
+
+/* --- Appointment Section Core Styles --- */
+#appointment {
+    background-color: var(--bg-color);
+    padding: 80px 0; /* Ensures section spacing */
+}
+
+/* Flexbox/Grid Container */
+.booking-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+    gap: 4rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* 1. Left Column: Information (Width 45%) */
+.booking-info {
+    flex: 1 1 400px; /* Grows but stays at least 400px if possible */
+}
+
+.booking-info h2 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.booking-info strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--secondary);
+}
+
+/* 2. Right Column: The Form Card (Width 50%) */
+.booking-form {
+    flex: 1 1 450px;
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    background: #f8fafc;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+/* Success Message Styling */
+#formSuccessMessage {
+    border: 1px solid #bbf7d0;
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Media Queries --- */
+
+/* For Tablets and Small Laptops */
+@media (max-width: 992px) {
+    .booking-section {
+        gap: 3rem;
+    }
+}
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+    #appointment {
+        padding: 60px 0;
+    }
+
+    .booking-section {
+        flex-direction: column; /* Stack vertically */
+        text-align: center;
+    }
+
+    .booking-info {
+        margin-bottom: 2rem;
+    }
+
+    /* Centers the icon-text info blocks on mobile */
+    .booking-info div[style*="display: flex"] {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem !important;
+    }
+
+    .booking-form {
+        padding: 1.5rem; /* Less padding to save space on small screens */
+        width: 100%;
+    }
+}
+/* --- Mobile Menu Button Logic --- */
+
+/* 1. Hide the button by default (Desktop view) */
+.mobile-menu-btn {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.75rem; /* Makes the icon large and touch-friendly */
+    color: var(--secondary); /* Uses your slate/dark theme color */
+    transition: var(--transition-fast);
+    padding: 0.5rem;
+    z-index: 1001; /* Keeps it above the nav links */
+}
+
+/* 2. Show the button only on Mobile/Tablet screens */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block; /* Reveals the "Bars" icon */
+    }
+
+    /* 3. Logic for the Menu Links (Initial State) */
+    .nav-links {
+        display: none; /* Hide links on mobile initially */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--glass-bg);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        backdrop-filter: blur(15px);
+    }
+
+    /* 4. Logic for when the menu is "Active" (Triggered by JS) */
+    .nav-links.active {
+        display: flex; /* Shows the links when button is clicked */
+    }
+}
+
+/* Hover effect for better UX */
+.mobile-menu-btn:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+
+</style>
+    
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                MedCare
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="bed.html">Bed Status</a></li>
+                <li><a href="symptom.html">Symptom Checker</a></li>
+                <li><a href="reportanalysis.html">Report Analysis</a></li>
+            
+                <li><a href="billing.html">Billing</a></li>
+                <li><a href="appo.html" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-left: 1rem;">Book
+                        Appointment</a></li>
+            </ul>
+        </div>
+    </nav>
+  <br>
+  <br>
+      <section class="section" id="appointment">
+        <div class="container">
+            <div class="booking-section">
+                <div class="booking-info">
+                    <h2>Book an Appointment</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Skip the queue.
+                        Schedule your visit with our expert specialists precisely when you need it.</p>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="color: var(--primary); font-size: 1.5rem;"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <strong>Call Us Available 24/7</strong>
+                            <div style="color: var(--text-muted);"> +91 96665 26665</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="color: var(--primary); font-size: 1.5rem;"><i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <strong>Location</strong>
+                            <div style="color: var(--text-muted);">Medicity, Banjara Hills, HC 4-45/67h/53</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="pName">Patient Name</label>
+                            <input type="text" id="pName" class="form-control" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="phn no">Contact</label>
+                            <input type="phone number" id="phn no" class="form-control" required
+                                placeholder="+91 XXXXX XXXXX">
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pEmail">Email Address</label>
+                            <input type="email" id="pEmail" class="form-control" required
+                                placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pDepartment">Department</label>
+                            <select id="pDepartment" class="form-control" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="General Medicine">General Medicine</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Dental">Dental Care</option>
+                                <option value="Orthopedics">Orthopedics</option>
+                                <option value="Neurology">Neurology</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pDate">Appointment Date</label>
+                            <input type="date" id="pDate" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Confirm
+                            Booking</button>
+                    </form>
+                    <div id="formSuccessMessage"
+                        style="display: none; background: #dcfce7; color: #166534; padding: 1rem; border-radius: 0.5rem; margin-top: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-circle-check"></i> Appointment booked successfully! We will contact you
+                        soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="booking.js"></script>
+    <script>const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+    // This toggles the 'active' class we defined in the CSS above
+    navLinks.classList.toggle('active');
+    
+    // Optional: Change icon from 'bars' to 'times' (X) when open
+    const icon = mobileMenuBtn.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+});</script>
+</body>

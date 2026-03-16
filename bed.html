@@ -1,0 +1,598 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedCare | Your Premium Health Partner</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* --- Global Styles & Variables --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* --- Variables & Reset --- */
+:root {
+  /* Modern Premium Palette */
+  --primary: #0d9488;
+  /* Modern Teal 600 */
+  --primary-light: #ccfbf1;
+  /* Teal 100 */
+  --primary-dark: #0f766e;
+  /* Teal 700 */
+
+  --secondary: #0f172a;
+  /* Slate 900 */
+  --secondary-light: #334155;
+  /* Slate 700 */
+
+  --accent: #f59e0b;
+  /* Amber 500 */
+  --accent-hover: #d97706;
+  /* Amber 600 */
+
+  --text-main: #1e293b;
+  /* Slate 800 */
+  --text-muted: #64748b;
+  /* Slate 500 */
+
+  --bg-color: #f8fafc;
+  /* Slate 50 */
+  --surface: #ffffff;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+
+  /* Modern Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 4px 20px rgba(13, 148, 136, 0.25);
+
+  /* Borders & Radius */
+  --border-color: #e2e8f0;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 9999px;
+
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo,
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  color: var(--secondary);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* --- Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --- Typography --- */
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg, var(--secondary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0 auto 4rem auto;
+  line-height: 1.8;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.4);
+  background: linear-gradient(135deg, var(--primary-dark), #0b5e57);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--secondary);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-accent:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+  color: #fff;
+}
+/* --- Navbar (Glassmorphism) --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: var(--transition);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a:not(.btn) {
+  font-weight: 500;
+  color: var(--secondary-light);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:not(.btn):hover {
+  color: var(--primary);
+}
+
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--secondary);
+}
+/*---basic completed----*/
+
+
+/* --- Live Bed Availability --- */
+.live-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.85);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(13, 148, 136, 0);
+  }
+
+  100% {
+    transform: scale(0.85);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+  }
+}
+
+.bed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.bed-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.bed-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.bed-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.bed-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.bed-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  font-family: 'Outfit';
+}
+
+.progress-container {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bed-status-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: right;
+  font-weight: 600;
+}
+
+.highlight-red {
+  color: #e11d48;
+}
+
+.highlight-green {
+  color: #059669;
+}
+
+.highlight-yellow {
+  color: #d97706;
+}
+
+.highlight-purple {
+  color: #7c3aed;
+}
+/* --- Mobile Menu Button Logic --- */
+
+/* 1. Hide the button by default (Desktop view) */
+.mobile-menu-btn {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.75rem; /* Makes the icon large and touch-friendly */
+    color: var(--secondary); /* Uses your slate/dark theme color */
+    transition: var(--transition-fast);
+    padding: 0.5rem;
+    z-index: 1001; /* Keeps it above the nav links */
+}
+
+/* 2. Show the button only on Mobile/Tablet screens */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block; /* Reveals the "Bars" icon */
+    }
+
+    /* 3. Logic for the Menu Links (Initial State) */
+    .nav-links {
+        display: none; /* Hide links on mobile initially */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--glass-bg);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        backdrop-filter: blur(15px);
+    }
+
+    /* 4. Logic for when the menu is "Active" (Triggered by JS) */
+    .nav-links.active {
+        display: flex; /* Shows the links when button is clicked */
+    }
+}
+
+/* Hover effect for better UX */
+.mobile-menu-btn:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+    </style>
+    
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                MedCare
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="bed.html">Bed Status</a></li>
+                <li><a href="symptom.html">Symptom Checker</a></li>
+                <li><a href="reportanalysis.html">Report Analysis</a></li>
+            
+                <li><a href="billing.html">Billing</a></li>
+                <li><a href="appo.html" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-left: 1rem;">Book
+                        Appointment</a></li>
+            </ul>
+        </div>
+    </nav>
+
+ <section class="section" id="bed-status" style="background-color: var(--white);">
+        <div class="container reveal">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <div
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary-light); color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-weight: 600; margin-bottom: 1rem; font-size: 0.875rem;">
+                    <span class="live-dot"></span> Live Status
+                </div>
+                <h2 class="section-title">Hospital Bed Availability</h2>
+                <p class="section-subtitle">Real-time updates on bed availability across our specialized departments.
+                </p>
+            </div>
+
+            <div class="bed-grid">
+                <!-- ICU -->
+                <div class="bed-card">
+                    <div class="bed-card-header">
+                        <div class="bed-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;"><i
+                                class="fa-solid fa-heart-pulse"></i></div>
+                        <h3>Intensive Care (ICU)</h3>
+                    </div>
+                    <div class="bed-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Beds</span>
+                            <span class="stat-value">45</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Available</span>
+                            <span class="stat-value highlight-red" id="icu-available">4</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 91%; background-color: #ef4444;"></div>
+                    </div>
+                    <div class="bed-status-text">High Occupancy</div>
+                </div>
+
+                <!-- General Ward -->
+                <div class="bed-card">
+                    <div class="bed-card-header">
+                        <div class="bed-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;"><i
+                                class="fa-solid fa-bed"></i></div>
+                        <h3>General Ward</h3>
+                    </div>
+                    <div class="bed-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Beds</span>
+                            <span class="stat-value">150</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Available</span>
+                            <span class="stat-value highlight-green" id="general-available">42</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 72%; background-color: #22c55e;"></div>
+                    </div>
+                    <div class="bed-status-text">Available</div>
+                </div>
+
+                <!-- Maternity -->
+                <div class="bed-card">
+                    <div class="bed-card-header">
+                        <div class="bed-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;"><i
+                                class="fa-solid fa-baby"></i></div>
+                        <h3>Maternity Ward</h3>
+                    </div>
+                    <div class="bed-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Beds</span>
+                            <span class="stat-value">60</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Available</span>
+                            <span class="stat-value highlight-yellow" id="maternity-available">12</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%; background-color: #f59e0b;"></div>
+                    </div>
+                    <div class="bed-status-text">Moderate Occupancy</div>
+                </div>
+
+                <!-- Private Suites -->
+                <div class="bed-card">
+                    <div class="bed-card-header">
+                        <div class="bed-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;"><i
+                                class="fa-solid fa-star"></i></div>
+                        <h3>Private Suites</h3>
+                    </div>
+                    <div class="bed-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Suites</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Available</span>
+                            <span class="stat-value highlight-purple" id="private-available">8</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 73%; background-color: #8b5cf6;"></div>
+                    </div>
+                    <div class="bed-status-text">Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="bedAvailability.js"></script>
+</body>
